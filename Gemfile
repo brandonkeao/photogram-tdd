@@ -38,6 +38,9 @@ gem 'capybara'
 # Include Simple Form
 gem 'simple_form'
 
+# Install paperclip
+gem "paperclip", "~> 5.0.0"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
