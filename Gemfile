@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # Include Capybara gem
 gem 'capybara'
 
+# Include Simple Form
+gem 'simple_form'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
