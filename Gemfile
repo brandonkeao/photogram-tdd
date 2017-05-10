@@ -50,7 +50,7 @@ group :development, :test do
   # Include RSpec
   gem 'rspec-rails', '~> 3.5'
   # Include Factory Girl
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', "~> 4.0"  
 end
 
 group :development do
