@@ -19,3 +19,9 @@ feature 'Creating posts' do
   		expect(page).to have_content("Halt, you fiend! You need an image to post here!")
 	end  
 end
+
+feature '...' do 
+	# Create multiple posts using factories.
+	# User visits the root route.
+	# User can see the comments and images of the posts we’ve created.
+end
