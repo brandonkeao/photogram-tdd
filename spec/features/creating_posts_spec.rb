@@ -20,8 +20,11 @@ feature 'Creating posts' do
 	end  
 end
 
-feature '...' do 
-	# Create multiple posts using factories.
-	# User visits the root route.
-	# User can see the comments and images of the posts we’ve created.
+feature 'Can view individual posts' do 
+	scenario 'can click click and view a single post' do
+		post = create(:post, caption: "This will be a clickable and viewable post")
+		visit '/'
+		find(:xpath, "//a[contains(@href,'posts/1')]").click
+		expect(page.current_path).to eq(post_path(post))
+	end
 end
