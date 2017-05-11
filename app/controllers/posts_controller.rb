@@ -23,6 +23,17 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@post = Post.find(params[:id])
+		if @post.destroy
+			flash[:success] = "Problem solved! Post deleted."
+			redirect_to posts_path
+		else
+			flash[:alert] = "Something went terribly wrong and deleting that nude selfie was not possible."
+			render :edit
+		end
+	end
+
 	def create 
 		@post = Post.create(post_params)
 
