@@ -1,0 +1,6 @@
+<%= image_tag @post.image.url(:medium) %>
+<%= simple_form_for @post do |p| %>
+	<%= p.input :image %>
+	<%= p.input :caption %>
+	<%= p.button :submit %>
+<% end %>
