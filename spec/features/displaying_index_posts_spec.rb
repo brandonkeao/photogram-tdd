@@ -1,4 +1,4 @@
-require 'rails_helper.rb'
+require 'rails_helper'
 
 feature 'Index displays a list of posts' do 
 	scenario 'the index displays correct created post information' do
