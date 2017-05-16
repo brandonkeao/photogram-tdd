@@ -13,6 +13,6 @@ feature 'Create a new user' do
 		fill_in 'Password confirmation', with: 'supersecret'
 		
 		click_button 'Sign up'
-		expect(page).to have_contents('Welcome! You have signed up successfully.')
+		expect(page).to have_content('Welcome! You have signed up successfully.')
 	end
 end
