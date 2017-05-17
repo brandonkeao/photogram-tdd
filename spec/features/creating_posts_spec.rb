@@ -2,18 +2,15 @@ require 'rails_helper'
 
 feature 'Creating posts' do
 	background do
-		# create our user factory
-		user = create(:user)
+		user = create :user 
 		visit '/'
-		expect(page).not_to have_content('New Post')
-
 		click_link 'Login'
-		fill_in 'Email', with: 'fancyfrank@gmail.com'
-		fill_in 'Password', with: 'illbeback'
+		fill_in 'Email', with: user.email
+		fill_in 'Password', with: user.password
 		click_button 'Log in'
 	end
 
-	scenario 'can create a post' do
+	scenario 'can create a new post' do
 		visit '/'
 		click_link 'New Post'
 		attach_file('Image', "spec/files/images/coffee.jpg")
@@ -32,11 +29,3 @@ feature 'Creating posts' do
 	end  
 end
 
-feature 'Can view individual posts' do 
-	scenario 'can click click and view a single post' do
-		post = create(:post, caption: "This will be a clickable and viewable post")
-		visit '/'
-		find(:xpath, "//a[contains(@href,'posts/1')]").click
-		expect(page.current_path).to eq(post_path(post))
-	end
-end
