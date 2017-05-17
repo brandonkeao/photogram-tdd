@@ -3,9 +3,9 @@ require 'rails_helper'
 feature 'Index displays a list of posts' do 
 	background do
 		# Create multiple posts using factories.
-		post_one = create(:post, caption: "This is post one")
-		post_two = create(:post, caption: "This is the second post")
 		user = create(:user)
+		post_one = create(:post, caption: "This is post one", user: user)
+		post_two = create(:post, caption: "This is the second post", user: user)
 		sign_in_with user
 
 	end

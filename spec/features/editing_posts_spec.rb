@@ -2,8 +2,9 @@ require 'rails_helper'
 
 feature 'Editing posts' do
 	background do
-		post = create :post
 		user = create :user
+		post = create( :post, user: user ) 
+		
 		sign_in_with user
 
 		find(:xpath, "//a[contains(@href,'posts/1')]").click
@@ -20,6 +21,5 @@ feature 'Editing posts' do
 		attach_file('Image', 'spec/files/images/dance.txt')
 		click_button 'Update Post' 
 		expect(page).to have_content("Something is wrong with your form")
-		# expect to see the message: 'Something is wrong with your form!'
 	end
 end
