@@ -6,12 +6,8 @@ feature 'Index displays a list of posts' do
 		post_one = create(:post, caption: "This is post one")
 		post_two = create(:post, caption: "This is the second post")
 		user = create(:user)
+		sign_in_with user
 
-		visit '/'
-		click_link 'Login'
-		fill_in 'Email', with: user.email
-		fill_in 'Password', with: user.password
-		click_button 'Log in'
 	end
 	scenario 'the index displays correct created post information' do
 		# User can see the comments and images of the posts we’ve created.

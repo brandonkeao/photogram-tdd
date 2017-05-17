@@ -21,11 +21,11 @@ feature 'User authentication' do
 	end
 
 	scenario 'can log out once logged in' do
-    	visit '/'
+		visit '/'
     	click_link 'Login'
-    	fill_in 'Email', with: 'fancyfrank@gmail.com'
-    	fill_in 'Password', with: 'illbeback'
-    	click_button 'Log in'
+		fill_in 'Email', with: 'fancyfrank@gmail.com'
+		fill_in 'Password', with: 'illbeback'
+		click_button 'Log in'
 
     	click_link 'Logout'
     	expect(page).to have_content('You need to sign in or sign up before continuing.')

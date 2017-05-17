@@ -7,6 +7,17 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
+module AuthHelpers
+  def sign_in_with (this_user)
+    visit '/'
+    click_link 'Login'
+    fill_in 'Email', with: this_user.email
+    fill_in 'Password', with: this_user.password
+    click_button 'Log in'
+  end
+end
+
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -31,6 +42,9 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   config.include FactoryGirl::Syntax::Methods
+
+  config.include AuthHelpers, type: :feature
+  #config.include AuthHelpers, type: :scenario
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

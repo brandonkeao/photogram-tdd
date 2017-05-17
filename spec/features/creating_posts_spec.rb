@@ -3,11 +3,7 @@ require 'rails_helper'
 feature 'Creating posts' do
 	background do
 		user = create :user 
-		visit '/'
-		click_link 'Login'
-		fill_in 'Email', with: user.email
-		fill_in 'Password', with: user.password
-		click_button 'Log in'
+		sign_in_with user
 	end
 
 	scenario 'can create a new post' do
